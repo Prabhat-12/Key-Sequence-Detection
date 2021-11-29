@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Learning about Konami Code!!!</h1>
+    <script>
+        let keycodes = [];
+
+        document.addEventListener('keydown',keydownHandler);
+
+        function keydownHandler(e) {
+            //add keycodes to the end of array
+            keycodes.push(e.key);
+            if (keycodes.length>7) {
+                //Remove first (oldest) element
+                keycodes.shift();
+            }
+            console.log(keycodes);
+
+            //check if keycodes is the secret code
+            if (keycodes.join() == ['p','r','a','b','h','a','t']) {
+                alert("Secret code has Entered!!!")
+                document.body.style.color = 'white'
+                document.body.style.backgroundColor = 'black'
+                document.body.style.textAlign = 'center'
+            }
+        }
+    </script>
+</body>
+</html>
